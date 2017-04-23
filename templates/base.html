@@ -1,0 +1,38 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> {% block title %}mysite{% endblock%} </title>
+  {% block stylesheets %}
+  {% load staticfiles %}
+  <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.css" %}"/>
+  <link rel="stylesheet" href="{% static "gentelella/css/custom.css" %}"/>
+  <link rel="stylesheet" href="{% static "gentelella/css/animate.min.css" %}"/>
+  <link rel="stylesheet" href="{% static "style.css" %}"/>
+  <link rel="stylesheet" href="{% static "gentelella/css/freelancer.min.css" %}"/>
+  <link rel= "stylesheet" href= "{% static "gentelella/fonts/css/font-awesome.min.css" %}"/>
+  <link rel= "stylesheet" href= "{% static "select2/css/select2.css" %}"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <!-- <meta content= "width = device-width, initial-scale=1, maximun-scale=1, user-scalable=no" name"view"/>  -->
+  {%endblock %}
+
+</head>
+
+<body class="login">
+   {% block body_atributes %}
+        {% endblock %}
+  {% block body_content %}
+        {% endblock %}
+
+
+
+{% block javascript %}
+{% load staticfiles %}
+<script src= "{% static "js/jquery.js" %}"></script>
+<script src="{% static "bootstrap/js/bootstrap.js" %}"></script>
+<script src="{% static "select2/js/select2.full.min.js" %}"></script>
+
+{% endblock %}
+</body>
+</html>

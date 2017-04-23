@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body_content %}
+<!-- <h3>Olá {{ user.get_full_name }}</h3> -->
+<a href="sair" class="btn btn-default submit"> Sair </a>
+<!-- <a href="tarefas/criar" class="btn-defaul submit"> Criar Formulario </a> -->
+
+</head>
+
+<body id="page-top" class="index">
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                  <a class="navbar-brand" href="#page-top">Olá {{ user.get_full_name }}</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                      <a href="sair"> Sair </a>
+                    </li>
+                  </li>
+                  <li class="page-scroll">
+                    <a href="tarefas/criar" class="btn-defaul submit"> Criar Formulario </a>
+                  </li>
+
+                </ul>
+            </div>
+
+        </div>
+
+    </nav>
+
+{% endblock %}

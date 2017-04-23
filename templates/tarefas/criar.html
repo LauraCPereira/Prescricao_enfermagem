@@ -1,0 +1,70 @@
+
+{% extends 'base.html' %}
+
+{% block body_content %}
+<div class="formulario">
+  <form action="" method="POST">
+
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <div class="panel panel-primary">
+
+          <center>
+
+                <ul class="list-group">
+                  <a class="panel-title descricaoTitulo">PrescricaoDeEnfermagem</a>
+                </ul>
+              </center>
+                <div class="panel-body">
+                  {% csrf_token %}
+                  <div class="form-inline">
+                      <div class="form-group">
+                        <label for="exampleInputName2">Nome</label>
+                        <input type="text" class="form-control" name="nome"  >
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail2">Leito</label>
+                        <input type="number" class="form-control" name="leito" >
+
+                      </div>
+                      <select class="js-example-basic-single">
+                            <option value="AL">Oncologia</option>
+                            <option value="WY">Geral</option>
+                      </select>
+                      <button type="submit" class="btn btn-info format">
+                          Salvar
+                        </button>
+
+                    </div>
+
+              </table>
+
+          </div>
+        </div>
+        <table class="table table-condensed">
+          <thead>
+            <tr>
+              <th >Prescricao de Enfermagem</th>
+              <th > Horário</th>
+              <th > Diagnostico de Enfermagem</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- <ul>
+              {% for prescricao in object_list %}
+              <li>
+                {{ prescricao }}
+              </li>
+              {% endfor %}
+            </ul> -->
+          </tbody>
+        </table>
+        <div class="form-group">
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+</div>
+{% endblock %}
