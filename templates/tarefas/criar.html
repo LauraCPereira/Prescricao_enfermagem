@@ -11,33 +11,37 @@
 
           <center>
 
-                <ul class="list-group">
-                  <a class="panel-title descricaoTitulo">PrescricaoDeEnfermagem</a>
-                </ul>
-              </center>
-                <div class="panel-body">
-                  {% csrf_token %}
-                  <div class="form-inline">
-                      <div class="form-group">
-                        <label for="exampleInputName2">Nome</label>
-                        <input type="text" class="form-control" name="nome"  >
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail2">Leito</label>
-                        <input type="number" class="form-control" name="leito" >
+            <ul class="list-group">
+              <a class="panel-title descricaoTitulo">Prescricao De Enfermagem</a>
+            </ul>
+          </center>
+          <div class="panel-body">
+            {% csrf_token %}
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label>Nome</label>
+                <input type="text" class="form-control nome" name="nome"  >
+              </div>
+              <div class="form-group col-md-3"><label>Leito</label>
+              <select class="form-control">
+                {% for leito in leitos %}
+                  <option value="{{leito.id}}">  {{ leito.codigoleito}}</option>
+                  {% endfor %}
+              </select>
+            </div><div class="form-group col-md-3"><label>Especialidade</label>
+              <select class="form-control col-md-3">
+                {% for especialidade in especialidades %}
+                  <option value="{{especialidade.id}}">  {{ especialidade.nome}}</option>
+                  {% endfor %}
+              </select>
+            </div>
+              <!-- <button type="submit" class="btn btn-info format">
+                Salvar
+              </button> -->
 
-                      </div>
-                      <select class="js-example-basic-single">
-                            <option value="AL">Oncologia</option>
-                            <option value="WY">Geral</option>
-                      </select>
-                      <button type="submit" class="btn btn-info format">
-                          Salvar
-                        </button>
+            </div>
 
-                    </div>
-
-              </table>
+          </table>
 
           </div>
         </div>
@@ -50,18 +54,40 @@
             </tr>
           </thead>
           <tbody>
-            <!-- <ul>
-              {% for prescricao in object_list %}
-              <li>
-                {{ prescricao }}
-              </li>
-              {% endfor %}
-            </ul> -->
+          <tr><td>  <select class="form-control">
+              {% for prescricao in prescricoes %}
+                <option value="{{leito.id}}">  {{ prescricao.descricao}}</option>
+                {% endfor %}
+            </select>
+          </td>
+          <td> <div class="form-group">
+            <input type="text" class="form-control" name="horario"  >
+          </div>
+          </td>
+          <td>  <select class="form-control">
+              {% for diagnostico in diagnosticos %}
+                <option value="{{leito.id}}">  {{ diagnostico.descricao}}</option>
+                {% endfor %}
+            </select>
+          </td>
+          <td> <button class="btn btn-info format">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+          </button> </td>
+        </tr>
+
           </tbody>
+
         </table>
         <div class="form-group">
         </div>
       </div>
+    </div>
+      <button type="submit" class="btn btn-info format">
+        Salvar
+      </button>
+
+    </div>
+
 
     </form>
   </div>

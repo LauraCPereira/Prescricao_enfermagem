@@ -7,19 +7,24 @@ class Paciente(models.Model):
     nome = models.CharField(max_length=200)
     idade = models.IntegerField()
 
-    #data_nascimento = models.DateField()
+class Leito(models.Model):
+    codigoleito = models.CharField(max_length = 100)
+
+class Prescricao(models.Model):
+    descricao= models.CharField(max_length= 255)
+
+class Diagnostico(models.Model):
+    descricao= models.CharField(max_length= 255)
 
 def __str__(self):
     return '{}'.format(self.nome)
 
-HORARIOS = (
-    (1,"Manhã"),(2, "Tarde"),(3, "Noite")
-)
 class PrescricaoDeEnfermagem(models.Model):
     paciente = models.ForeignKey(Paciente, on_delete=models.CASCADE)
-    numleito= models.IntegerField()
-    turno = models.IntegerField(choices = HORARIOS)
-    #leito = models.ForeignKey(Leito, on_delete=models.CASCADE)
+    leito = models.ForeignKey(Leito, on_delete=models.CASCADE)
+    horario= models.CharField(max_length= 100)
+    diagnostico= models.CharField(max_length= 255)
+    prescricao= models.ForeignKey(Prescricao, on_delete=models.CASCADE)
 
 class Monitoramento(models.Model):
     prescricaodeenfermagem = models.ForeignKey(PrescricaoDeEnfermagem, on_delete=models.CASCADE)
@@ -46,7 +51,5 @@ class SinaisVitais(models.Model):
     valor = models.CharField(max_length = 255)
     marcado = models.BooleanField(default = False)
 
-
-
 class Especialidade(models.Model):
-    nome = models.CharField(max_length = 1)
+    nome = models.CharField(max_length = 100)

@@ -28,7 +28,7 @@ class Autenticacao(View):
                 return redirect ('/')
             else:
                 context.update(mensagem = 'Usuario Inativo')
-        else:                                  
+        else:
             context.update(mensagem='Usuario ou senha Incorreta')
         return render(request, 'autenticacao/login.html', context)
 
@@ -42,3 +42,14 @@ class CriarTarefas(CreateView):
     form_class= Formularios
     template_name= 'tarefas/criar.html'
     success_url='/'
+
+    def get_context_data(self, **kwargs):
+
+        context = super(CriarTarefas, self).get_context_data(**kwargs)
+        context['especialidades'] = Especialidade.objects.all()
+        context['leitos'] = Leito.objects.all()
+        context['prescricoes'] = Prescricao.objects.all()
+        context['diagnosticos'] = Diagnostico.objects.all()
+
+
+        return context
