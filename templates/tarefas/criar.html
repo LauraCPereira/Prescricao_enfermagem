@@ -8,14 +8,13 @@
     <div class="panel panel-info">
       <div class="panel-heading">
         <div class="panel panel-primary">
-
           <center>
-
             <ul class="list-group">
               <a class="panel-title descricaoTitulo">Prescricao De Enfermagem</a>
             </ul>
           </center>
           <div class="panel-body">
+
             {% csrf_token %}
             <div class="row">
               <div class="form-group col-md-6">
@@ -23,74 +22,74 @@
                 <input type="text" class="form-control nome" name="nome"  >
               </div>
               <div class="form-group col-md-3"><label>Leito</label>
-              <select class="form-control">
-                {% for leito in leitos %}
+                <select class="form-control">
+                  {% for leito in leitos %}
                   <option value="{{leito.id}}">  {{ leito.codigoleito}}</option>
                   {% endfor %}
-              </select>
-            </div><div class="form-group col-md-3"><label>Especialidade</label>
-              <select class="form-control col-md-3">
-                {% for especialidade in especialidades %}
+                </select>
+              </div><div class="form-group col-md-3"><label>Especialidade</label>
+                <select class="form-control col-md-3">
+                  {% for especialidade in especialidades %}
                   <option value="{{especialidade.id}}">  {{ especialidade.nome}}</option>
                   {% endfor %}
-              </select>
+                </select>
+              </div>
             </div>
-              <!-- <button type="submit" class="btn btn-info format">
-                Salvar
-              </button> -->
-
-            </div>
-
           </table>
-
-          </div>
         </div>
-        <table class="table table-condensed">
-          <thead>
-            <tr>
-              <th >Prescricao de Enfermagem</th>
-              <th > Horário</th>
-              <th > Diagnostico de Enfermagem</th>
-            </tr>
-          </thead>
-          <tbody>
-          <tr><td>  <select class="form-control">
-              {% for prescricao in prescricoes %}
+      </div>
+      <table class="table table-condensed">
+        <thead>
+          <tr>
+            <th >Prescricao de Enfermagem</th>
+            <th > Horário</th>
+            <th > Diagnostico de Enfermagem</th>
+          </tr>
+        </thead>
+        <tbody id="input_prescricao">
+          <tr>
+            <td>
+              <select class="form-control">
+                {% for prescricao in prescricoes %}
                 <option value="{{leito.id}}">  {{ prescricao.descricao}}</option>
                 {% endfor %}
-            </select>
-          </td>
-          <td> <div class="form-group">
-            <input type="text" class="form-control" name="horario"  >
-          </div>
-          </td>
-          <td>  <select class="form-control">
-              {% for diagnostico in diagnosticos %}
+              </select>
+            </td>
+            <td>
+              <div class="form-group">
+                <input type="text" class="form-control" name="horario"  >
+              </div>
+            </td>
+            <td>
+              <select class="form-control">
+                <option ></option>
+                {% for diagnostico in diagnosticos %}
                 <option value="{{leito.id}}">  {{ diagnostico.descricao}}</option>
                 {% endfor %}
-            </select>
-          </td>
-          <td> <button class="btn btn-info format">
-            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-          </button> </td>
-        </tr>
-
+              </select>
+            </td>
+            <td> <button id="add_button"class="btn btn-info format">
+              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            </button> </td>
+          </tr>
           </tbody>
-
-        </table>
-        <div class="form-group">
+          </table>
+            <div class="form-group">
         </div>
       </div>
     </div>
       <button type="submit" class="btn btn-info format">
         Salvar
       </button>
-
     </div>
-
-
-    </form>
-  </div>
-
+  </form>
+ </div>
 </div>
+<div class="input_fields_wrap">
+    <button class="add_field_button">Add More Fields</button>
+    <div><input type="text" name="mytext[]"></div>
+</div>
+<script>
+
+</script>
 {% endblock %}
